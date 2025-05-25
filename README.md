@@ -4,7 +4,7 @@ This is a simple command line hangman game. It taunts you, tells you when you ar
 
 I started this project to help me learn c++. I had a very basic understanding of it, and wanted to dive into it further.
 
-[Software Demo Video]([http://youtube.link.goes.here](https://youtu.be/GmMce6i2Ypo))
+[Software Demo Video](https://youtu.be/GmMce6i2Ypo)
 
 # Development Environment
 

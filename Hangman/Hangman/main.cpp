@@ -7,7 +7,9 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib> // Just to be safe, including this for rand/srand
+// Just to be safe, including this for rand/srand
+#include <cstdlib>
+// Needed for time()
 #include <ctime>   // Needed for time()
 
 using namespace std;
@@ -15,8 +17,9 @@ using namespace std;
 // This version of hangman might be a bit dramatic...
 int main()
 {
-    srand(time(0)); // Seed randomness once – otherwise it repeats the same "random" word
+    // Seed randomness once – otherwise it repeats the same "random" word
 
+    srand(time(0));
     // Not sure if 50 is overkill, but I wanted variety
     const string wordBank[50] = {
         "apple", "banana", "grape", "orange", "peach",
@@ -32,9 +35,11 @@ int main()
     };
     // pick random word from list
     string mysteryWord = wordBank[rand() % 50];
-    string revealed(mysteryWord.length(), '_');  // placeholder for guessed word
+    // placeholder for guessed word
+    string revealed(mysteryWord.length(), '_');
     int wrongGuesses = 0;
-    const int maxAttempts = 7;  // 7 feels fair. Like 1 head, 1 torso, 2 arms, 2 legs, and... idk, a hat?
+    // 7 feels fair. Like 1 head, 1 torso, 2 arms, 2 legs, and... idk, a hat?
+    const int maxAttempts = 7;
     string guessedLetters = "";
     char userGuess;
 
@@ -55,6 +60,7 @@ int main()
             continue;
         }
 
+        // set letter guessed as variable
         guessedLetters += userGuess;
 
         // Check if guess is in the word
@@ -66,7 +72,8 @@ int main()
                 letterFound = true;
             }
         }
-
+        
+// statements for if letter is/isn't correct
         if (letterFound)
         {
             cout << "Nice one! That letter's in there.\n";
@@ -79,6 +86,7 @@ int main()
 
     }
 
+    // statements for when user wins/loses
     if (revealed == mysteryWord)
     {
         cout << "\nYou won! The guy lives another day.\n";
